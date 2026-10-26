@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FourXplore - Bernardo Novaski Vidal de Almeida</title>
+
+  <!-- CSS EXTERNO (principal forma de estilização) -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- CSS INTERNO: formata 3 elementos específicos (h1 do topo, caption da tabela e rodapé) -->
+  <style>
+    header h1 { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35); letter-spacing: 1px; }
+    caption { font-style: italic; color: var(--texto-suave); padding: 8px; }
+    footer p { font-size: 14px; margin: 4px 0; }
+  </style>
+</head>
+<body>
+
+  <!-- CABEÇALHO + MENU -->
+  <header id="bernardo_topo">
+    <img src="img/logoFourXplore.png" alt="Foto FourXplore" style="width: 100px; height: auto; background-color: transparent;">
+    <h1>FourXplore</h1>
+    <nav id="bernardo_menu">
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#passeios">Passeios</a></li>
+        <li><a href="#socios">Sócios</a></li>
+        <li><a href="#tabela">Roteiro</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <button id="btnTema" class="bernardo_tema" onclick="alternarTema()">🌙 Modo Escuro</button>
+    <div class="bernardo_cores">
+      <button class="bernardo_cor bernardo_cor_verde" onclick="trocarCor('verde')" title="Verde" aria-label="Tema verde"></button>
+      <button class="bernardo_cor bernardo_cor_azul" onclick="trocarCor('azul')" title="Azul" aria-label="Tema azul"></button>
+      <button class="bernardo_cor bernardo_cor_roxo" onclick="trocarCor('roxo')" title="Roxo" aria-label="Tema roxo"></button>
+      <button class="bernardo_cor bernardo_cor_laranja" onclick="trocarCor('laranja')" title="Laranja" aria-label="Tema laranja"></button>
+    </div>
+  </header>
+
+  <main id="container">
+
+    <!-- BANNER / DESTAQUE -->
+    <section id="inicio" class="bernardo_banner">
+      <h2>DESCUBRA - CONECTE - VIVA</h2>
+      <p>Aqui te conectamos com opotunidades, experiências e lazer.</p>
+      <p style="font-weight: bold; color: #ffd54f;">Agência de marketing de experiências e turismo local</p>
+      <a class="bernardo_botao" href="#passeios">Ver passeios</a>
+    </section>
+
+    <!-- SOBRE (GRID B: 1fr 2fr 1fr) -->
+    <section id="sobre">
+      <h2>Sobre a FourXplore</h2>
+      <div class="bernardo_gridB">
+        <article class="bernardo_card">
+          <h3>Missão</h3>
+          <p>Promover a descoberta de lugares, experiências e atividades de lazer, incentivando as pessoas a saírem da rotina.</p>
+        </article>
+
+        <article class="bernardo_card bernardo_destaque_central">
+          <h3>Quem somos</h3>
+          <p>A FourXplore é uma agência de marketing voltada à promoção de passeios, turismo local e experiências acessíveis em Campo Largo/PR e região.</p>
+          <p>Conectamos o público (B2C: moradores e turistas de 18 a 60 anos) e parceiros comerciais (B2B: restaurantes, bares e pontos turísticos) por meio de conteúdos digitais autênticos e informativos.</p>
+        </article>
+
+        <aside class="bernardo_aside">
+          <h3>Destaques da semana</h3>
+          <ul>
+            <li>4 sócios empreendedores</li>
+            <li>Foco em lazer acessível</li>
+            <li>Meta: 10 mil seguidores</li>
+            <li>Atuação B2C e B2B</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- DIFERENCIAIS / SERVIÇOS (4 CARDS) -->
+    <section id="servicos">
+      <h2>Nossos Diferenciais</h2>
+      <div class="bernardo_cards4">
+        <article class="bernardo_card">
+          <h3>Lazer acessível</h3>
+          <p>Divulgamos opções de passeio para todos os bolsos.</p>
+          <button class="bernardo_btn" onclick="abrirModal('Lazer acessível', 'Selecionamos experiências com ótimo custo-benefício para que todos possam sair da rotina e aproveitar a cidade.')">Saiba mais</button>
+        </article>
+        <article class="bernardo_card">
+          <h3>Conteúdo digital</h3>
+          <p>Vídeos, fotos e textos adaptados às redes sociais.</p>
+          <button class="bernardo_btn" onclick="abrirModal('Conteúdo digital', 'Produzimos vídeos, imagens e textos em formatos pensados para Instagram, TikTok, Facebook e YouTube.')">Saiba mais</button>
+        </article>
+        <article class="bernardo_card">
+          <h3>Parcerias locais</h3>
+          <p>Ajudamos negócios da região a ganhar visibilidade.</p>
+          <button class="bernardo_btn" onclick="abrirModal('Parcerias locais', 'Restaurantes, bares, pontos turísticos e instituições públicas podem ampliar sua presença digital com a FourXplore.')">Saiba mais</button>
+        </article>
+        <article class="bernardo_card">
+          <h3>Comunicação próxima</h3>
+          <p>Linguagem autêntica e transparente com o público.</p>
+          <button class="bernardo_btn" onclick="abrirModal('Comunicação próxima', 'Atuamos como influenciadores digitais regionais, com transparência nas parcerias e compromisso com a qualidade das informações.')">Saiba mais</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- PASSEIOS (GRID A: repeat(3, 1fr)) -->
+    <section id="passeios">
+      <h2>Passeios em Campo Largo</h2>
+      <p>Clique em "Ver detalhes" para abrir a janela com mais informações.</p>
+
+      <div class="bernardo_gridA">
+        <article class="bernardo_card">
+          <img src="img/painel.jpg" alt="Rota da Louça e Porcelana em Campo Largo">
+          <h3>Rota da Louça</h3>
+          <p>Conheça a tradição da louça e porcelana da cidade.</p>
+          <button class="bernardo_btn" onclick="abrirModal('Rota da Louça', 'Roteiro cultural pelas lojas e fábricas de louça e porcelana, marca registrada de Campo Largo.')">Ver detalhes</button>
+        </article>
+        <article class="bernardo_card">
+          <img src="img/newtonPuppi.jpg" alt="Parque Newton Püppi">
+          <h3>Parque Newton Püppi</h3>
+          <p>Natureza e lazer ao ar livre para toda a família.</p>
+          <button class="bernardo_btn" onclick="abrirModal('Parque Newton Püppi', 'Área verde ideal para caminhadas, piqueniques e momentos de descanso em contato com a natureza.')">Ver detalhes</button>
+        </article>
+        <article class="bernardo_card">
+          <img src="img/igrejaMatriz.jpg" alt="Igreja Matriz de Campo Largo">
+          <h3>Centro Histórico</h3>
+          <p>Arquitetura e história no coração da cidade.</p>
+          <button class="bernardo_btn" onclick="abrirModal('Centro Histórico', 'Passeio a pé pelo centro, com a Igreja Matriz e pontos que contam a história de Campo Largo.')">Ver detalhes</button>
+        </article>
+        <article class="bernardo_card">
+          <img src="img/velhoMoinho.jpg" alt="Velho Moinho">
+          <h3>Velho Moinho</h3>
+          <p>Um cantinho tradicional de Campo Largo para visitar.</p>
+          <button class="bernardo_btn" onclick="abrirModal('Velho Moinho', 'Ponto tradicional da cidade, ótimo para conhecer um pouco da história local e registrar boas fotos.')">Ver detalhes</button>
+        </article>
+        <article class="bernardo_card">
+          <img src="img/saltoBoaVista.jpg" alt="Salto Boa Vista">
+          <h3>Salto Boa Vista</h3>
+          <p>Natureza e paisagem para quem busca sair da rotina.</p>
+          <button class="bernardo_btn" onclick="abrirModal('Salto Boa Vista', 'Passeio em meio à natureza da região, ideal para quem quer relaxar e aproveitar a paisagem.')">Ver detalhes</button>
+        </article>
+        <article class="bernardo_card">
+          <img src="img/feiraNoturna.jpg" alt="Feira Noturna de Campo Largo">
+          <h3>Feira Noturna</h3>
+          <p>Passeio noturno para curtir a cidade.</p>
+          <button class="bernardo_btn" onclick="abrirModal('Feira Noturna', 'Opção para aproveitar o fim do dia em Campo Largo, com movimento, comida e convivência.')">Ver detalhes</button>
+        </article>
+      </div>
+
+      <!-- Galeria de imagens -->
+      <h3>Galeria</h3>
+      <div class="bernardo_galeria">
+        <img src="img/parqueMate.jpg" alt="Parque do Mate, Campo Largo">
+        <img src="img/parapente.jpg" alt="Voo de parapente, Campo Largo">
+        <img src="img/museuCampoLargo.jpg" alt="Museu de Campo Largo, Campo Largo">
+        <img src="img/ouroFino.jpg" alt="Ouro Fino, Campo Largo">
+        <img src="img/lagoa.jpg" alt="Lagoa, Campo Largo">
+        <img src="img/estOuroFino.jpg" alt="Estação Ouro Fino, Campo Largo">
+      </div>
+
+      <!-- Carrossel -->
+      <h3>Carrossel de Passeios</h3>
+      <div id="bernardo_carrossel">
+        <img id="bernardo_foto" src="img/painel.jpg" alt="Passeio em Campo Largo">
+        <p id="bernardo_legenda">Passeio 1: Rota da Louça</p>
+        <p id="bernardo_indicador">Imagem 1 de 8</p>
+        <button id="bernardo_btnVoltar" class="bernardo_btn" onclick="mudar(-1)" disabled>Anterior</button>
+        <button id="bernardo_btnAvancar" class="bernardo_btn" onclick="mudar(1)">Próximo</button>
+      </div>
+    </section>
+
+    <!-- SÓCIOS / ABAS (GRID C: áreas nomeadas) -->
+    <section id="socios">
+      <div class="bernardo_gridC">
+        <h2 class="bernardo_c_topo">Conheça a FourXplore</h2>
+
+        <div class="bernardo_c_menu">
+          <button id="btnAba1" class="ativo" onclick="mostrarAba(1)">Bernardo</button>
+          <button id="btnAba2" onclick="mostrarAba(2)">Emanuele</button>
+          <button id="btnAba3" onclick="mostrarAba(3)">Suelen</button>
+          <button id="btnAba4" onclick="mostrarAba(4)">Bruno</button>
+          <button id="btnAba5" onclick="mostrarAba(5)">Empresa</button>
+          <button id="btnAba6" onclick="mostrarAba(6)">Parceiros</button>
+        </div>
+
+        <div class="bernardo_c_conteudo">
+          <article id="aba1" class="bernardo_conteudo" style="display: block;">
+            <img src="img/fotoBer.jpg" alt="Foto de Bernardo Novaski Vidal de Almeida">
+            <h3>Bernardo Novaski Vidal de Almeida</h3>
+            <p>Sócio empreendedor e titular do registro da FourXplore. Gestor de Produção e Operações.</p>
+          </article>
+          <article id="aba2" class="bernardo_conteudo">
+            <img src="img/fotoManu.jpg" alt="Foto de Emanuele de Paula Marinho de Oliveira">
+            <h3>Emanuele de Paula Marinho de Oliveira</h3>
+            <p>Sócia empreendedora. Gestão de Redes e Relacionamento.</p>
+          </article>
+          <article id="aba3" class="bernardo_conteudo">
+            <img src="img/fotoSu.jpg" alt="Foto de Suelen Gabriela da Silva Wilseki">
+            <h3>Suelen Gabriela da Silva Wilseki</h3>
+            <p>Sócia empreendedora. Gestão de Prazos e Planejamentos.</p>
+          </article>
+          <article id="aba4" class="bernardo_conteudo">
+            <img src="img/fotoBruno.jpg" alt="Foto de Bruno Henrique Ribeiro Vieira">
+            <h3>Bruno Henrique Ribeiro Vieira</h3>
+            <p>Sócio empreendedor. Gestor de Tráfego e Financeiro.</p>
+          </article>
+          <article id="aba5" class="bernardo_conteudo">
+            <img src="img/logoFourXplore2.png" alt="Foto da FourXplore">
+            <h3>A Empresa</h3>
+            <p><strong>Visão:</strong> ser referência na divulgação de experiências e locais de lazer.</p>
+            <p><strong>Valores:</strong> lazer e bem-estar, autenticidade, qualidade das informações, apoio aos negócios locais e transparência.</p>
+          </article>
+          <article id="aba6" class="bernardo_conteudo">
+            <img src="img/foguete.png" alt="Imagem Foguete" style="background-color: transparent;">
+            <h3>Parceiros (B2B)</h3>
+            <p>Bares, restaurantes, pontos turísticos, organizadores de eventos e instituições públicas podem contratar divulgação pontual ou planos mensais.</p>
+          </article>
+        </div>
+
+        <p class="bernardo_c_rodape">Clique nas abas para alternar o conteúdo.</p>
+      </div>
+    </section>
+
+    <!-- TABELA 7x5 (7 linhas x 5 colunas) -->
+    <section id="tabela">
+      <h2>Roteiro Semanal de Passeios</h2>
+      <table class="bernardo_tabela">
+        <caption>Programação semanal da FourXplore (segunda-feira sem passeio)</caption>
+        <thead>
+          <tr>
+            <th>Dia</th>
+            <th>Passeio</th>
+            <th>Horário</th>
+            <th>Público</th>
+            <th>Parceiro</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Terça</td><td>Rota da Louça</td><td>14h</td><td>Adultos</td><td>Lojas locais</td></tr>
+          <tr><td>Quarta</td><td>Centro Histórico</td><td>15h</td><td>Todas as idades</td><td>Poder público</td></tr>
+          <tr><td>Quinta</td><td>Velho Moinho</td><td>16h</td><td>Todas as idades</td><td>Parceiros locais</td></tr>
+          <tr><td>Sexta</td><td>Feira Noturna</td><td>19h</td><td>Adultos</td><td>Feirantes</td></tr>
+          <tr><td>Sábado</td><td>Salto Boa Vista</td><td>9h</td><td>Todas as idades</td><td>Guias locais</td></tr>
+          <tr><td>Domingo</td><td>Parque Newton Püppi</td><td>10h</td><td>Famílias</td><td>Parque</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- FAQ / ACCORDION -->
+    <section id="faq">
+      <h2>Perguntas Frequentes</h2>
+      <div class="bernardo_accordion">
+        <div class="bernardo_item">
+          <button class="bernardo_acc_btn"><span>O que é a FourXplore?</span><span class="icone">+</span></button>
+          <div class="bernardo_acc_conteudo"><p>Uma agência de marketing que promove passeios, experiências e lazer acessível em Campo Largo/PR.</p></div>
+        </div>
+        <div class="bernardo_item">
+          <button class="bernardo_acc_btn"><span>Quem pode contratar os serviços?</span><span class="icone">+</span></button>
+          <div class="bernardo_acc_conteudo"><p>Bares, restaurantes, pontos turísticos, organizadores de eventos e instituições públicas.</p></div>
+        </div>
+        <div class="bernardo_item">
+          <button class="bernardo_acc_btn"><span>Quais serviços são oferecidos?</span><span class="icone">+</span></button>
+          <div class="bernardo_acc_conteudo"><p>Produção de vídeos, imagens e textos para redes sociais, em conteúdos pontuais ou campanhas contínuas.</p></div>
+        </div>
+        <div class="bernardo_item">
+          <button class="bernardo_acc_btn"><span>Como funciona o pagamento?</span><span class="icone">+</span></button>
+          <div class="bernardo_acc_conteudo"><p>Pode ser por demanda (por vídeo) ou por plano mensal, conforme combinado entre as partes.</p></div>
+        </div>
+        <div class="bernardo_item">
+          <button class="bernardo_acc_btn"><span>Onde a FourXplore atua?</span><span class="icone">+</span></button>
+          <div class="bernardo_acc_conteudo"><p>Inicialmente em Campo Largo e região, com possibilidade de expansão futura.</p></div>
+        </div>
+        <div class="bernardo_item">
+          <button class="bernardo_acc_btn"><span>Como entro em contato?</span><span class="icone">+</span></button>
+          <div class="bernardo_acc_conteudo"><p>Pelo formulário da seção Contato, pelas redes sociais ou por e-mail.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULÁRIO DE CONTATO -->
+    <section id="contato">
+      <h2>Fale Conosco</h2>
+      <form id="bernardo_formulario">
+
+        <fieldset>
+          <legend>1. Dados pessoais</legend>
+          <label for="bernardo_nome">Nome:</label>
+          <input type="text" id="bernardo_nome" placeholder="Seu nome completo">
+
+          <label for="bernardo_email">E-mail:</label>
+          <input type="text" id="bernardo_email" placeholder="exemplo@dominio.com">
+
+          <label for="bernardo_telefone">Telefone:</label>
+          <input type="text" id="bernardo_telefone" placeholder="(41) 99999-9999">
+
+          <label for="bernardo_idade">Idade:</label>
+          <input type="number" id="bernardo_idade" placeholder="Ex: 25">
+
+          <label for="bernardo_senha">Senha:</label>
+          <input type="password" id="bernardo_senha" placeholder="Mínimo 6 dígitos">
+
+          <label for="bernardo_confirma">Confirme a senha:</label>
+          <input type="password" id="bernardo_confirma" placeholder="Repita a senha">
+        </fieldset>
+
+        <fieldset>
+          <legend>2. Perfil</legend>
+          <input type="radio" id="bernardo_b2c" name="perfil" value="B2C">
+          <label for="bernardo_b2c" class="bernardo_inline">Pessoa (quero conhecer passeios)</label>
+          <input type="radio" id="bernardo_b2b" name="perfil" value="B2B">
+          <label for="bernardo_b2b" class="bernardo_inline">Empresa (quero divulgar meu negócio)</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>3. Interesse</legend>
+          <label for="bernardo_passeio">Passeio de interesse:</label>
+          <select id="bernardo_passeio">
+            <option value="">Selecione...</option>
+            <option value="Rota da Louça">Rota da Louça</option>
+            <option value="Parque Newton Püppi">Parque Newton Püppi</option>
+            <option value="Velho Moinho">Velho Moinho</option>
+            <option value="Salto Boa Vista">Salto Boa Vista</option>
+            <option value="Feira Noturna">Feira Noturna</option>
+            <option value="Outros">Outros</option>
+          </select>
+
+          <label for="bernardo_mensagem">Mensagem:</label>
+          <textarea id="bernardo_mensagem" rows="4" placeholder="Escreva sua mensagem (mínimo 10 caracteres)"></textarea>
+
+          <input type="checkbox" id="bernardo_termos">
+          <label for="bernardo_termos" class="bernardo_inline">Aceito receber contato da FourXplore.</label>
+        </fieldset>
+
+        <!-- type="button" evita recarregar a página; a validação é feita pelo JS -->
+        <button type="button" class="bernardo_btn" onclick="validarFormulario()">Enviar</button>
+      </form>
+      <p id="bernardo_msg"></p>
+    </section>
+
+  </main>
+
+  <!-- JANELA MODAL (única e reaproveitável) -->
+  <div id="fundoModal">
+    <div id="caixaModal">
+      <span class="bernardo_fechar" onclick="fecharModal()">✕</span>
+      <h3 id="tituloModal">Título</h3>
+      <p id="textoModal">Texto</p>
+      <button class="bernardo_btn" onclick="fecharModal()">Entendi</button>
+    </div>
+  </div>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <p><strong>FourXplore</strong> - Marketing de experiências, passeios e turismo local. <strong>Siga: @fourxplore_</strong></p>
+    <p>Rua Angelo Cequinel, 5510, Salgadinho - Campo Largo/PR - CEP 83.606-484</p>
+    <p>&copy; 2026 FourXplore. Todos os direitos reservados. CNPJ: 67.239.233/0001-12.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

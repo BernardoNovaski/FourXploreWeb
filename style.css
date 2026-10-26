@@ -1,0 +1,376 @@
+/* VARIÁVEIS: TEMA PADRÃO (VERDE) + MODO CLARO */
+body {
+  --primaria: #00695c;
+  --escura: #004d40;
+  --media: #00897b;
+  --destaque: #ff8f00;
+  --titulo: #00695c;
+
+  --fundo: #f4f7f6;
+  --texto: #263238;
+  --texto-suave: #546e7a;
+  --card: #ffffff;
+  --card2: #eceff1;
+  --hover: #cfd8dc;
+  --linha: #f1f8f7;
+  --aside: #fff3e0;
+  --borda: #b0bec5;
+}
+
+/* 4 OPÇÕES DE COR */
+body.tema-azul    { --primaria: #1565c0; --escura: #0d47a1; --media: #1976d2; --destaque: #ff8f00; --titulo: #1565c0; }
+body.tema-roxo    { --primaria: #6a1b9a; --escura: #4a148c; --media: #8e24aa; --destaque: #ffb300; --titulo: #6a1b9a; }
+body.tema-laranja { --primaria: #e65100; --escura: #bf360c; --media: #f57c00; --destaque: #00897b; --titulo: #e65100; }
+
+/* MODO ESCURO (sobrescreve apenas as cores neutras) */
+body.escuro {
+  --fundo: #121212;
+  --texto: #e0e0e0;
+  --texto-suave: #b0bec5;
+  --card: #1e1e1e;
+  --card2: #2a2a2a;
+  --hover: #3a3a3a;
+  --linha: #252525;
+  --aside: #2b2417;
+  --borda: #455a64;
+}
+
+/* Títulos ficam mais claros no modo escuro (cada tema tem sua versão clara) */
+body.escuro                { --titulo: #4db6ac; }
+body.escuro.tema-azul      { --titulo: #64b5f6; }
+body.escuro.tema-roxo      { --titulo: #ce93d8; }
+body.escuro.tema-laranja   { --titulo: #ffb74d; }
+
+/* RESET E BASE (seletor de tag) */
+* { box-sizing: border-box; }
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: var(--fundo);
+  color: var(--texto);
+  line-height: 1.5;
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Seletor agrupado */
+h1, h2, h3 { margin-top: 0; color: var(--titulo); }
+
+p { margin: 0 0 10px; }
+
+img { max-width: 100%; display: block; background-color: #cfd8dc; }
+
+/* CONTAINER */
+#container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+section { margin-bottom: 40px; }
+
+/* CABEÇALHO E MENU */
+header {
+  padding: 16px 32px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
+
+#bernardo_topo {
+  background-color: var(--primaria);
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+#bernardo_topo h1 { color: #ffffff; margin: 0; }
+
+#bernardo_menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Seletor encadeado / descendente */
+nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  display: block;
+}
+
+nav ul li a:hover { background-color: var(--destaque); }
+
+/* BOTÕES DE TEMA (modo escuro + 4 cores) */
+.bernardo_tema {
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+.bernardo_cores { display: flex; gap: 6px; align-items: center; }
+
+.bernardo_cor {
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  cursor: pointer;
+}
+
+.bernardo_cor_verde   { background-color: #00695c; }
+.bernardo_cor_azul    { background-color: #1565c0; }
+.bernardo_cor_roxo    { background-color: #6a1b9a; }
+.bernardo_cor_laranja { background-color: #e65100; }
+
+/* BANNER */
+.bernardo_banner {
+  background: linear-gradient(135deg, var(--media), var(--escura));
+  color: #ffffff;
+  text-align: center;
+  padding: 60px 20px;
+  border-radius: 8px;
+}
+
+.bernardo_banner h2 { color: #ffffff; font-size: 2rem; }
+
+.bernardo_botao {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: var(--destaque);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* CARDS E BOTÕES */
+.bernardo_card {
+  background-color: var(--card);
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.bernardo_destaque_central { border-top: 4px solid var(--destaque); }
+
+.bernardo_card img { width: 100%; height: 140px; object-fit: cover; border-radius: 6px; margin-bottom: 10px; }
+
+.bernardo_btn {
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--media);
+  color: #ffffff;
+  margin-top: 6px;
+}
+
+.bernardo_btn:hover { background-color: var(--primaria); }
+.bernardo_btn:disabled { background-color: #b0bec5; cursor: not-allowed; }
+
+/* GRID B: PROPORÇÕES DIFERENTES (SOBRE) */
+.bernardo_gridB {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 16px;
+}
+
+.bernardo_aside {
+  background-color: var(--aside);
+  border-left: 4px solid var(--destaque);
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.bernardo_aside ul { padding-left: 18px; margin: 0; }
+
+/* GRID A: COLUNAS IGUAIS (PASSEIOS) */
+.bernardo_gridA {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* Diferenciais: 4 cards em colunas iguais */
+.bernardo_cards4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* GALERIA */
+.bernardo_galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.bernardo_galeria img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; }
+
+/* CARROSSEL */
+#bernardo_carrossel { text-align: center; background-color: var(--card); padding: 16px; border-radius: 8px; }
+
+#bernardo_foto {
+  width: 100%;
+  max-width: 500px;
+  height: 280px;
+  object-fit: cover;
+  margin: 0 auto 8px;
+  border-radius: 6px;
+}
+
+#bernardo_legenda { font-style: italic; color: var(--texto-suave); }
+
+/* GRID C: ÁREAS NOMEADAS (SÓCIOS / ABAS) */
+.bernardo_gridC {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 12px;
+  grid-template-areas:
+    "topo topo"
+    "menu conteudo"
+    "rodape rodape";
+}
+
+.bernardo_c_topo { grid-area: topo; margin: 0; }
+.bernardo_c_menu { grid-area: menu; display: flex; flex-direction: column; gap: 4px; }
+.bernardo_c_conteudo { grid-area: conteudo; background-color: var(--card); border-radius: 8px; padding: 16px; }
+.bernardo_c_rodape { grid-area: rodape; font-size: 13px; color: var(--texto-suave); margin: 0; }
+
+.bernardo_c_menu button {
+  padding: 12px;
+  font-size: 15px;
+  text-align: left;
+  border: none;
+  border-left: 4px solid transparent;
+  background-color: var(--card2);
+  color: var(--texto-suave);
+  cursor: pointer;
+}
+
+.bernardo_c_menu button:hover { background-color: var(--hover); }
+
+.bernardo_c_menu button.ativo {
+  background-color: var(--card);
+  color: var(--titulo);
+  font-weight: bold;
+  border-left: 4px solid var(--primaria);
+}
+
+.bernardo_conteudo { display: none; }
+.bernardo_conteudo img { width: 140px; height: 140px; object-fit: cover; border-radius: 50%; margin-bottom: 10px; }
+
+/* TABELA */
+.bernardo_tabela { width: 100%; border-collapse: collapse; background-color: var(--card); }
+
+.bernardo_tabela th { background-color: var(--primaria); color: #ffffff; padding: 10px; text-align: left; }
+.bernardo_tabela td { padding: 10px; border-bottom: 1px solid var(--borda); }
+.bernardo_tabela tbody tr:nth-child(even) { background-color: var(--linha); }
+
+/* FAQ / ACCORDION */
+.bernardo_accordion { background-color: var(--card); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12); }
+
+.bernardo_item { border-bottom: 1px solid var(--borda); }
+.bernardo_item:last-child { border-bottom: none; }
+
+.bernardo_acc_btn {
+  width: 100%;
+  padding: 16px 20px;
+  background-color: var(--card);
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--texto);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bernardo_acc_btn:hover { background-color: var(--hover); }
+.bernardo_acc_btn .icone { font-size: 18px; transition: transform 0.3s ease; }
+
+.bernardo_acc_conteudo { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background-color: var(--card2); }
+.bernardo_acc_conteudo p { padding: 16px 20px; margin: 0; color: var(--texto-suave); }
+
+/* Estado ativo (gaveta aberta) */
+.bernardo_item.ativo .bernardo_acc_conteudo { max-height: 150px; }
+.bernardo_item.ativo .icone { transform: rotate(45deg); }
+
+/* FORMULÁRIO */
+#bernardo_formulario fieldset { margin-bottom: 16px; border: 1px solid var(--borda); border-radius: 8px; background-color: var(--card); }
+#bernardo_formulario legend { font-weight: bold; color: var(--titulo); padding: 0 8px; }
+
+#bernardo_formulario label { display: block; margin-top: 8px; font-weight: bold; }
+#bernardo_formulario label.bernardo_inline { display: inline; font-weight: normal; margin-right: 12px; }
+
+#bernardo_formulario input[type="text"],
+#bernardo_formulario input[type="number"],
+#bernardo_formulario input[type="password"],
+#bernardo_formulario select,
+#bernardo_formulario textarea {
+  width: 100%;
+  max-width: 400px;
+  padding: 8px;
+  font-size: 15px;
+  border: 1px solid var(--borda);
+  border-radius: 4px;
+  display: block;
+  background-color: var(--card);
+  color: var(--texto);
+}
+
+#bernardo_msg { font-weight: bold; margin-top: 10px; }
+
+/* MODAL */
+#fundoModal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
+
+#caixaModal {
+  position: relative;
+  background-color: var(--card);
+  color: var(--texto);
+  width: 90%;
+  max-width: 360px;
+  margin: 15% auto;
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.bernardo_fechar { position: absolute; top: 8px; right: 12px; cursor: pointer; font-weight: bold; font-size: 18px; }
+
+/* RODAPÉ */
+footer { background-color: var(--escura); color: #ffffff; text-align: center; padding: 20px; }
+
+/* RESPONSIVIDADE */
+@media (max-width: 800px) {
+  .bernardo_gridA, .bernardo_cards4, .bernardo_gridB, .bernardo_galeria { grid-template-columns: 1fr; }
+  .bernardo_gridC {
+    grid-template-columns: 1fr;
+    grid-template-areas: "topo" "menu" "conteudo" "rodape";
+  }
+  .bernardo_c_menu { flex-direction: row; flex-wrap: wrap; }
+}
