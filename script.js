@@ -1,7 +1,7 @@
 /* 
    FOURXPLORE - script.js
    Funcionalidades: tema, validação, carrossel, abas, FAQ e modal
-
+*/
 /* 0. TEMA: MODO CLARO/ESCURO E 4 OPÇÕES DE COR */
 function alternarTema() {
   // Liga/desliga a classe "escuro" na tag <body>
